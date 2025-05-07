@@ -1,11 +1,9 @@
 <?php
-/* Acessando as funções de Fabricantes */
-require_once "../src/funcoes-fabricantes.php";
+require_once "../vendor/autoload.php";
 
-/* Chamando a função responsável por carregar os dados dos Fabricantes */
-$listaDeFabricantes = listarFabricantes($conexao);
+$fabricanteServico = new FabricanteServico;
+$listaDeFabricantes = $fabricanteServico->listarTodos();
 
-/* Contando os elementos/registros */
 $quantidade = count($listaDeFabricantes);
 ?>
 <!DOCTYPE html>

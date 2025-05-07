@@ -1,5 +1,5 @@
 <?php
-namespace ExemploCrud;
+namespace ExemploCrud\Database;
 
 use Exception;
 use PDO, Throwable;
