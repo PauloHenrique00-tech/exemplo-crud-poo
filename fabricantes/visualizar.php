@@ -1,4 +1,7 @@
 <?php
+
+use ExemploCrud\Services\FabricanteServico;
+
 require_once "../vendor/autoload.php";
 
 $fabricanteServico = new FabricanteServico;
