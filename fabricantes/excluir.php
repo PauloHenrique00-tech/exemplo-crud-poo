@@ -1,6 +1,6 @@
 <?php
 require_once "../src/funcoes-fabricantes.php";
-$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT); 
+$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 /* Verificando se houve o "SIM" para excluir */
 if(isset($_GET['confirmar-exclusao'])){
@@ -8,8 +8,6 @@ if(isset($_GET['confirmar-exclusao'])){
     header("location:visualizar.php");
     exit;
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,7 +26,8 @@ if(isset($_GET['confirmar-exclusao'])){
         <p> Deseja realmente excluir este fabricante?</p>
         
         <a href="visualizar.php" class="btn btn-secondary">Não</a>
-        <a href="?id=<?=$id?>&confirmar-exclusao" class="btn btn-danger">Sim</a>        
+        <a href="?id=<?=$id?>&confirmar-exclusao" class="btn btn-danger">
+        Sim</a>        
     </div>
 
 </div>
@@ -36,3 +35,4 @@ if(isset($_GET['confirmar-exclusao'])){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
