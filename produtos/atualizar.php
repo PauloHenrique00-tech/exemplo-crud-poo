@@ -1,11 +1,17 @@
 <?php
-require_once "../src/funcoes-produtos.php";
 
-require_once "../src/funcoes-fabricantes.php";
-$listaDeFabricantes = listarFabricantes($conexao);
+use ExemploCrud\Helpers\Utils;
+use ExemploCrud\Services\ProdutoServico;
+
+require_once "../vendor/autoload.php";
+
+$produtoServico = new ProdutoServico();
+$produtoDados = $produtoServico->buscarPorId($id);
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $produto = listarUmProduto($conexao, $id);
+
+Utils::dump($produtoDados);
 
 if (isset($_POST["atualizar"])) { // 
     $nome = filter_input(INPUT_POST,"nome", FILTER_SANITIZE_SPECIAL_CHARS);
