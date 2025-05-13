@@ -1,6 +1,7 @@
 <?php
 
 use ExemploCrud\Helpers\Utils;
+use ExemploCrud\Models\Fabricante;
 use ExemploCrud\Services\FabricanteServico;
 require_once "../vendor/autoload.php";
 
@@ -11,13 +12,12 @@ $fabricanteDados = $fabricanteServico->buscarPorId($id);
 
 // Utils::dump($fabricanteDados);
 
-/* Verificando se o formulário de atualização foi acionado */
 if(isset($_POST['atualizar'])){
     $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
-    
-    /* Exercício! Implemente a função para atualizar o nome do fabricante */
-    atualizarFabricante($conexao, $id, $nome);
-    
+    $fabricante = new Fabricante($nome, $id);
+  
+    $fabricanteServico->atualizar($fabricante);
+
     header("location:visualizar.php");
     exit;
 }
