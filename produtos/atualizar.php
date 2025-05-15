@@ -15,6 +15,8 @@ $produto = listarUmProduto($conexao, $id);
 Utils::dump($produtoDados);
 
 if (isset($_POST["atualizar"])) { // 
+    $produtoServico = new ProdutoServico($nome, $descricao, $preco, $quantidade, $fabricante_id, $id);
+
     $nome = filter_input(INPUT_POST,"nome", FILTER_SANITIZE_SPECIAL_CHARS);
     $descricao = filter_input(INPUT_POST, "descricao", FILTER_SANITIZE_SPECIAL_CHARS);
     $preco = filter_input(INPUT_POST, "preco", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
