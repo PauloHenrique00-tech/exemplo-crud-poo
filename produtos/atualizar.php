@@ -5,10 +5,11 @@ use ExemploCrud\Services\ProdutoServico;
 
 require_once "../vendor/autoload.php";
 
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $produtoServico = new ProdutoServico();
 $produtoDados = $produtoServico->buscarPorId($id);
+$listaDeFabricantes = $fabricanteServico->listarTodos();
 
-$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $produto = listarUmProduto($conexao, $id);
 
 Utils::dump($produtoDados);
@@ -19,8 +20,10 @@ if (isset($_POST["atualizar"])) { //
     $preco = filter_input(INPUT_POST, "preco", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     $quantidade = filter_input(INPUT_POST, "quantidade", FILTER_SANITIZE_NUMBER_INT);
     $fabricante_id = filter_input(INPUT_POST, "fabricante", FILTER_SANITIZE_NUMBER_INT);
+    $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
 
-    atualizarProduto($conexao, $id, $nome, $descricao, $preco, $quantidade, $fabricante_id);
+    $produtoServico->atualizar($id, $nome, $descricao, $preco, $quantidade, $fabricante_id);
+   
     header("location:visualizar.php");
     exit;
 }
