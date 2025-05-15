@@ -1,5 +1,5 @@
 <?php
-require_once "../src/funcoes-produtos.php";
+require_once "../vendor/autoload.php";
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 if(isset($_GET["confirmar-exclusao"])){
