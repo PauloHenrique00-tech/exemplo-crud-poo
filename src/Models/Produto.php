@@ -18,8 +18,8 @@ final class Produto
         float $preco,
         int $quantidade,
         int $fabricanteId,
-        ?int $id = null,
-        ?string $descricao = null
+        ?string $descricao = null,
+        ?int $id = null
     ) {
 
         $this->setNome($nome);
