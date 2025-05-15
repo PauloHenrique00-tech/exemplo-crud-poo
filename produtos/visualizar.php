@@ -6,8 +6,10 @@ use ExemploCrud\Services\ProdutoServico;
 require_once "../vendor/autoload.php";
 
 $produtoServico = new ProdutoServico;
-$listaDeProdutos = listarProdutos($conexao);
+//$listaDeProdutos = listarProdutos($conexao);
+$listaDeProdutos = $produtoServico->listarTodos();
 
+$quantidade = count($listaDeProdutos)
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,8 +34,8 @@ $listaDeProdutos = listarProdutos($conexao);
           <?php foreach ($listaDeProdutos as $produto): ?>
             <div class="col-sm-6">
                 <article class="bg-body-secondary p-2">
-                    <h3><?=$produto["produto"]?></h3>
-                    <h4><?=$produto["fabricante"]?></h4>
+                    <h3><?=$listaDeProdutos["produto"]?></h3>
+                    <h4><?=$listaDeProdutos["fabricante"]?></h4>
                     <p><b>Preço: </b> <?=Utils::formatarPreco($produto["preco"])?></p>
                     <p><b>Quantidade: </b> <?=$produto["quantidade"]?></p>
                     <p><b>Total: </b><?=Utils::formatarPreco($produto["preco"] * $produto["quantidade"])?></p>
