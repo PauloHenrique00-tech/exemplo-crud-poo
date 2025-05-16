@@ -1,13 +1,19 @@
 <?php
 
+use ExemploCrud\Helpers\Utils;
 use ExemploCrud\Services\FabricanteServico;
 
 require_once "../vendor/autoload.php";
 
-$fabricanteServico = new FabricanteServico;
-$listaDeFabricantes = $fabricanteServico->listarTodos();
 
-$quantidade = count($listaDeFabricantes);
+try {
+    $fabricanteServico = new FabricanteServico();
+    $listaDeFabricantes = $fabricanteServico->listarTodos();
+    $quantidade = count($listaDeFabricantes);
+} catch (\Throwable $erro) {
+    Utils::registrarLog($erro);
+    $mensagemDeErro = "Houve um erro ao carregar os dados. Fale com o Suporte.";
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,6 +32,9 @@ $quantidade = count($listaDeFabricantes);
         <hr>
         <h2>Lendo e carregando todos os fabricantes.</h2>
 
+        <?php if (!empty($mensagemDeErro)) : ?>
+            <p class="alert alert-danger"> <?=$mensagemDeErro?></p>
+        <?php endif; ?>
         <p><a class="btn btn-primary btn-sm" href="inserir.php">Inserir novo fabricante</a></p>
 
 

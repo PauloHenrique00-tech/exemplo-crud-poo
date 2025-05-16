@@ -15,9 +15,8 @@ final class Utils {
    public static function formatarPreco(float $valor):string {
     return "R$ " .number_format($valor, 2, ",", ".");
     }
-}
 
-public static function registrarLog(Throwable $e): void
+    public static function registrarLog(Throwable $e): void
     {
         date_default_timezone_set('America/Sao_Paulo');
 
@@ -29,3 +28,4 @@ public static function registrarLog(Throwable $e): void
 
         file_put_contents(__DIR__ . '/../../logs/erros.log', $mensagem, FILE_APPEND);
     }
+}
