@@ -12,7 +12,6 @@ if(isset($_GET["confirmar-exclusao"])){
     $produtoServico->excluir($id);
     header("location:visualizar.php");
     exit;
-    
 }
 
 ?>
@@ -33,7 +32,7 @@ if(isset($_GET["confirmar-exclusao"])){
         <hr>
 
         <div class="alert alert-danger w-50">
-            <p> Deseja realmente excluir o produto?</p>
+            <p> Deseja realmente excluir o produto <?=$produtoDados['nome']?>?</p>
 
             <a href="visualizar.php" class="btn btn-secondary">Não</a>
             <a href="?id=<?=$id?>&confirmar-exclusao" class="btn btn-danger">Sim</a>
