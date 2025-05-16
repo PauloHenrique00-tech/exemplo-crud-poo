@@ -1,4 +1,7 @@
 <?php
+
+use ExemploCrud\Services\ProdutoServico;
+
 require_once "../vendor/autoload.php";
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
@@ -7,7 +10,6 @@ $produtoDados = $produtoServico->buscarPorId($id);
 
 if(isset($_GET["confirmar-exclusao"])){
     $produtoServico->excluir($id);
-    excluirProduto($conexao, $id);
     header("location:visualizar.php");
     exit;
     

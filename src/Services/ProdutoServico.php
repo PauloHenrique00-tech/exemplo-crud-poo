@@ -66,13 +66,20 @@ final class ProdutoServico
 
     public function atualizar(Produto $produto):void 
     {
-         $sql = "UPDATE produtos SET nome = :nome WHERE id = :id";
+         $sql = "UPDATE produtos 
+            SET nome = :nome, preco = :preco, quantidade = :quantidade, descricao = :descricao, fabricante_id = :fabricante_id 
+            WHERE id = :id";
 
-        try {
-            $consulta = $this->conexao->prepare($sql);
-            $consulta->bindValue(":nome", $produto->getNome(), PDO::PARAM_STR);
-            $consulta->bindValue(":id", $produto->getId(), PDO::PARAM_INT);
-            $consulta->execute();
+    try { 
+
+        $consulta = $this->conexao->prepare($sql);
+        $consulta->bindValue(":nome", $produto->getNome(), PDO::PARAM_STR);
+        $consulta->bindValue(":descricao", $produto->getDescricao(), PDO::PARAM_STR);
+        $consulta->bindValue(":preco", $produto->getPreco(), PDO::PARAM_STR);
+        $consulta->bindValue(":id", $produto->getId(), PDO::PARAM_INT);
+        $consulta->bindValue(":fabricante_id", $produto->getFabricanteId(), PDO::PARAM_INT);
+        $consulta->bindValue(":quantidade", $produto->getQuantidade(), PDO::PARAM_INT);
+        $consulta->execute();
         } catch (Throwable $erro) {
             throw new Exception("Erro ao atualizar produto: ".$erro->getMessage());
         }
