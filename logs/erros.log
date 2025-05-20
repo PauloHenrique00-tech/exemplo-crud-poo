@@ -10,3 +10,33 @@ Arquivo: C:\xampp\htdocs\exemplo-crud-poo\src\Services\FabricanteServico.php
 Linha: 30
 Mensagem: Erro ao carregar fabricantes
 
+[2025-05-16 11:24:03]
+Arquivo: C:\xampp\htdocs\exemplo-crud-poo\src\Services\FabricanteServico.php
+Linha: 26
+Mensagem: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vendas.fabricante' doesn't exist
+
+[2025-05-16 11:24:03]
+Arquivo: C:\xampp\htdocs\exemplo-crud-poo\src\Services\FabricanteServico.php
+Linha: 30
+Mensagem: Erro ao carregar fabricantes
+
+[2025-05-16 11:46:56]
+Arquivo: C:\xampp\htdocs\exemplo-crud-poo\src\Services\FabricanteServico.php
+Linha: 26
+Mensagem: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vendas.fabricante' doesn't exist
+
+[2025-05-16 11:46:56]
+Arquivo: C:\xampp\htdocs\exemplo-crud-poo\src\Services\FabricanteServico.php
+Linha: 30
+Mensagem: Erro ao carregar fabricantes
+
+[2025-05-20 08:26:37]
+Arquivo: C:\xampp\htdocs\exemplo-crud-poo\src\Services\FabricanteServico.php
+Linha: 26
+Mensagem: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vendas.fabricante' doesn't exist
+
+[2025-05-20 08:26:37]
+Arquivo: C:\xampp\htdocs\exemplo-crud-poo\src\Services\FabricanteServico.php
+Linha: 30
+Mensagem: Erro ao carregar fabricantes
+
